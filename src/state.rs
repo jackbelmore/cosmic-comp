@@ -18,6 +18,7 @@ use crate::{
             a11y::A11yState,
             corner_radius::CornerRadiusState,
             drm::WlDrmState,
+            gamma_control::GammaControlManagerState,
             image_capture_source::CosmicImageCaptureSourceState,
             keyboard_layout::KeyboardLayoutState,
             output_configuration::OutputConfigurationState,
@@ -280,6 +281,7 @@ pub struct Common {
     pub data_device_state: DataDeviceState,
     pub dmabuf_state: DmabufState,
     pub fractional_scale_state: FractionalScaleManagerState,
+    pub gamma_control_manager_state: GammaControlManagerState,
     pub keyboard_shortcuts_inhibit_state: KeyboardShortcutsInhibitState,
     pub output_state: OutputManagerState,
     pub output_configuration_state: OutputConfigurationState<State>,
@@ -763,6 +765,9 @@ impl State {
 
         let a11y_state = A11yState::new::<State, _>(dh, client_not_sandboxed);
 
+        let gamma_control_manager_state =
+            GammaControlManagerState::new::<State, _>(dh, client_not_sandboxed);
+
         let dbus_state = DBusState::init(&handle);
 
         let session_lock_layer_state =
@@ -796,6 +801,7 @@ impl State {
                 data_device_state,
                 dmabuf_state,
                 fractional_scale_state,
+                gamma_control_manager_state,
                 idle_notifier_state,
                 idle_inhibit_manager_state,
                 idle_inhibiting_surfaces,
