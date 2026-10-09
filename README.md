@@ -1,3 +1,16 @@
+> [!NOTE]
+> **This fork adds `wlr-gamma-control` to cosmic-comp**, so night-light apps like
+> [Redeye](https://github.com/jackbelmore/cosmic-ext-redeye), gammastep and wlsunset can
+> change screen colours on COSMIC.
+>
+> Each `gamma-X.Y.Z` branch is the official `epoch-X.Y.Z` release plus Nick Smith's
+> [pop-os/cosmic-comp#2417](https://github.com/pop-os/cosmic-comp/pull/2417), which was
+> ported from [niri](https://github.com/niri-wm/niri). Use the branch that matches your
+> COSMIC version. Install and undo steps are in
+> [Redeye's packaging notes](https://github.com/jackbelmore/cosmic-ext-redeye/blob/main/packaging/README.md).
+>
+> Everything below is the upstream README.
+
 # cosmic-comp
 Compositor for the COSMIC desktop environment
 
